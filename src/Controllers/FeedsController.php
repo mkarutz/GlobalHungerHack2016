@@ -64,6 +64,8 @@ class FeedsController
 
 	public function create(Request $request)
 	{
+		return $_FILES['photo']['name'];
+
 		$user = $this->userAuthenticationService->getUser();
 		$form = $request->request;
 
