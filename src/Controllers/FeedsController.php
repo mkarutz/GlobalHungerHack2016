@@ -44,11 +44,8 @@ class FeedsController
 	 * @param SuburbDAO $suburbDAO
 	 * @param Twig_Environment $twig
 	 */
-	public function __construct(UserAuthenticationService $userAuthenticationService,
-	                            FeedDAO $feedDAO,
-								AddressDAO $addressDAO,
-	                            SuburbDAO $suburbDAO,
-	                            Twig_Environment $twig)
+	public function __construct(UserAuthenticationService $userAuthenticationService, FeedDAO $feedDAO,
+	                            AddressDAO $addressDAO, SuburbDAO $suburbDAO, Twig_Environment $twig)
 	{
 		$this->userAuthenticationService = $userAuthenticationService;
 		$this->feedDAO = $feedDAO;
@@ -57,13 +54,16 @@ class FeedsController
 		$this->twig = $twig;
 	}
 
-
 	public function form(Request $request)
 	{
-		$suburbs = $this->suburbDAO->findAll();
-		return new Response($this->twig->render('feeds/new.html.twig'), array(
-			'suburbs' => $suburbs
-		));
+		try {
+			$suburbs = $this->suburbDAO->findAll();
+			return new Response($this->twig->render('feeds/new.html.twig'), array(
+				'suburbs' => $suburbs
+			));
+		} catch (\Exception $e) {
+			return $e->getTraceAsString();
+		}
 	}
 
 	public function create(Request $request)

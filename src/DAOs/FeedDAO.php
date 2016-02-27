@@ -8,11 +8,10 @@
 
 namespace FedUp\DAOs;
 
-use FedUp\Models\Address;
+use Exception;
 use FedUp\Models\Feed;
-use \PDO;
-use \PDOException;
-use \Exception;
+use PDO;
+use PDOException;
 
 class FeedDAO
 {
