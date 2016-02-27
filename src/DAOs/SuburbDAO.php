@@ -53,6 +53,7 @@ class SuburbDAO
 	private static function build($row)
 	{
 		$suburb = new Suburb();
+		$suburb->setSuburbId(intval($row['suburbId']));
 		$suburb->setName($row['name']);
 		$suburb->setPostCode($row['postCode']);
 		return $suburb;

@@ -73,7 +73,7 @@ class FeedsController
 		$feed->setDescription($form->get('description'));
 
 		$addressLine1 = $form->get('line1');
-		$addressLine2 = $form->get('line2');
+		$addressLine2 = $form->get('line2') === '' ? null : $form->get('line2');
 		$suburbId = $form->get('suburbId');
 
 		$address = $this->addressDAO->find($addressLine1, $addressLine2, $suburbId);
