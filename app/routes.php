@@ -6,13 +6,16 @@ use Silex\Application;
 
 $app->get('/', 'LandingController:dispatch');
 
-$app->get('/signup', 'UsersController:new');
+$app->get('/signup', 'UsersController:signup');
 $app->post('/signup', 'UsersController:create');
 
 $app->get('/login', 'UsersController:login');
 $app->post('/login', 'UsersController:auth');
 
 $app->get('/logout', 'UsersController:logout');
+
+// Home page
+$app->get('/app', 'AppController:home');
 
 // Browse feeds
 $app->get('/feeds', 'FeedsController:index');
@@ -30,7 +33,7 @@ $app->get('/invitations', 'InvitationsController:index');
 $app->get('/invitations/{invitationId}', 'InvitationsController:view');
 
 // Create a feed
-$app->get('/feeds/new', 'FeedsController:new');
+$app->get('/feeds/new', 'FeedsController:form');
 $app->post('/feeds/new', 'FeedsController:create');
 
 // View requests

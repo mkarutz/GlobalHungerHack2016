@@ -7,7 +7,10 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 
+use FedUp\DAOs\UserDAO;
+
 use FedUp\Controllers\LandingController;
+use FedUp\Controllers\UsersController;
 
 /** @var Application $app */
 
@@ -26,8 +29,23 @@ $app['PDO'] = $app->share(function ($app) {
 	return new PDO($app['db.dsn'], $app['db.username'], $app['db.password']);
 });
 
+// DAOs
+$app['UserDAO'] = $app->share(function () use ($app) {
+	return new UserDAO($app['PDO']);
+});
+
+// Services
+$app['UserAuthenticationService'] = $app->share(function () use ($app) {
+	return new \FedUp\Services\UserAuthenticationService($app['UserDAO']);
+});
+
+// Controllers
 $app['LandingController'] = $app->share(function () use ($app) {
 	return new LandingController($app['twig']);
+});
+
+$app['UsersController'] = $app->share(function () use ($app) {
+	return new UsersController($app['UserAuthenticationService'], $app['UserDAO'], $app['twig']);
 });
 
 //
