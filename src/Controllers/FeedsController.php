@@ -91,6 +91,7 @@ class FeedsController
 
 		$extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
 		$target = '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension;
+		return $target;
 		move_uploaded_file($_FILES['photo']['tmp_name'], $target);
 
 		return new RedirectResponse('/feeds/' . $feed->getFeedId());
