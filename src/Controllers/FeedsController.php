@@ -92,7 +92,7 @@ class FeedsController
 		$uploadedFileName = $_FILES['photo']['name'];
 		$exploded = explode('.', $uploadedFileName);
 		$extension = end($exploded);
-		move_uploaded_file($_FILES['photo']['name'], '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension);
+		move_uploaded_file($_FILES['photo']['tmp_name'], '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension);
 
 		return new RedirectResponse('/feeds/' . $feed->getFeedId());
 	}
