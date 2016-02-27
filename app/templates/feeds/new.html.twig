@@ -1,0 +1,48 @@
+{% extends 'layouts/appBase.html.twig' %}
+{% block page %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-push-4">
+                <h1>Post a Feed</h1>
+                <form id="newFeed" action="/feeds/new" method="post">
+                    <div class="form-group">
+                        <label for="name" class="control-label">Name</label>
+                        <input type="text" id="name" class="form-control" name="name" placeholder="What do you have to give?" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="control-label">Name</label>
+                        <textarea id="description" class="form-control" name="description" placeholder="Description"></textarea>
+                    </div>
+
+                    <fieldset class="form-group">
+                        <label for="photo">Upload a photo</label>
+                        <input type="file" class="form-control-file" id="photo" accept="image/*;capture=camera">
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Location</legend>
+                        <div class="form-group">
+                            <label for="line1" class="control-label">Line 1</label>
+                            <input type="text" id="line1" class="form-control" name="line1" placeholder="Line 1" value="" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="line2" class="control-label">Line 2</label>
+                            <input type="text" id="line2" class="form-control" name="line2" placeholder="Line 2" value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="suburb">Suburb</label>
+                            <select multiple="" class="form-control" id="suburb" required>
+                                <option value="" disabled selected>Suburb</option>
+                                {% for suburb in suburbs %}
+                                    <option value="{{ suburb.suburbId }}">{{ suburb.name }} {{ suburb.postCode }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

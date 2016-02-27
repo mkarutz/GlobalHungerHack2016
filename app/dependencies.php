@@ -1,5 +1,6 @@
 <?php
 
+use FedUp\Controllers\AppController;
 use Silex\Application;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
@@ -34,6 +35,27 @@ $app['UserDAO'] = $app->share(function () use ($app) {
 	return new UserDAO($app['PDO']);
 });
 
+$app['FeedDAO'] = $app->share(function () use ($app) {
+	return new \FedUp\DAOs\FeedDAO($app['PDO']);
+});
+
+$app['SuburbDAO'] = $app->share(function () use ($app) {
+	return new \FedUp\DAOs\SuburbDAO($app['PDO']);
+});
+
+$app['AddressDAO'] = $app->share(function () use ($app) {
+	return new \FedUp\DAOs\AddressDAO($app['PDO']);
+});
+
+$app['InvitationDAO'] = $app->share(function () use ($app) {
+	return new \FedUp\DAOs\InvitationDAO($app['PDO']);
+});
+
+$app['RequestDAO'] = $app->share(function () use ($app) {
+	return new \FedUp\DAOs\RequestDAO($app['PDO']);
+});
+
+
 // Services
 $app['UserAuthenticationService'] = $app->share(function () use ($app) {
 	return new \FedUp\Services\UserAuthenticationService($app['UserDAO']);
@@ -46,6 +68,14 @@ $app['LandingController'] = $app->share(function () use ($app) {
 
 $app['UsersController'] = $app->share(function () use ($app) {
 	return new UsersController($app['UserAuthenticationService'], $app['UserDAO'], $app['twig']);
+});
+
+$app['AppController'] = $app->share(function () use ($app) {
+	return new AppController($app['twig']);
+});
+
+$app['FeedsController'] = $app->share(function () use ($app) {
+	return new \FedUp\Controllers\FeedsController($app['FeedDAO'], $app['SuburbDAO'], $app['twig']);
 });
 
 //

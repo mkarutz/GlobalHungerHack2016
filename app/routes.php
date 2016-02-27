@@ -4,14 +4,18 @@ use Silex\Application;
 
 /** @var Application $app */
 
+// Landing page
 $app->get('/', 'LandingController:dispatch');
 
+// Sign up
 $app->get('/signup', 'UsersController:signup');
 $app->post('/signup', 'UsersController:create');
 
+// Log in
 $app->get('/login', 'UsersController:login');
 $app->post('/login', 'UsersController:auth');
 
+// Log out
 $app->get('/logout', 'UsersController:logout');
 
 // Home page
