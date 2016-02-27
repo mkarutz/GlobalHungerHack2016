@@ -24,6 +24,10 @@ $app->get('/app', 'AppController:home');
 //// Browse feeds
 //$app->get('/feeds', 'FeedsController:index');
 
+// Create a feed
+$app->get('/feeds/new', 'FeedsController:form');
+$app->post('/feeds/new', 'FeedsController:create');
+
 // View a feed
 $app->get('/feeds/{feedId}', 'FeedsController:view');
 
@@ -35,10 +39,6 @@ $app->get('/feeds/{feedId}', 'FeedsController:view');
 //
 //// View invitation and navigate to Feed
 //$app->get('/invitations/{invitationId}', 'InvitationsController:view');
-
-// Create a feed
-$app->get('/feeds/new', 'FeedsController:form');
-$app->post('/feeds/new', 'FeedsController:create');
 
 //// View requests
 //$app->get('/requests', 'RequestsController:index');
