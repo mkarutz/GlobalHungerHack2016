@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <base href="{{ app.request.baseUrl }}">
+    <base href="{{ app.request.getSchemeAndHttpHost() }}">
     <title>
         {% block title %}
             FedUp - Join the food-sharing revolution!
