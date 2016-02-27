@@ -57,9 +57,9 @@ class FeedsController
 	public function form(Request $request)
 	{
 		$suburbs = $this->suburbDAO->findAll();
-		return new Response($this->twig->render('feeds/new.html.twig'), array(
+		return new Response($this->twig->render('feeds/new.html.twig', array(
 			'suburbs' => $suburbs
-		));
+		)));
 	}
 
 	public function create(Request $request)
