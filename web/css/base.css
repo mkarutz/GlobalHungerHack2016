@@ -23,6 +23,8 @@ body, p, h1, h2, h3, h4, h5, h6, span, a {
 
 .intro-header {
     min-height: 100vh;
+    background-size: cover;
+    text-align: center;
 }
 
 .intro-message h3 {
@@ -61,4 +63,17 @@ body, p, h1, h2, h3, h4, h5, h6, span, a {
 
 .quick-start-p {
     text-align: center;
+}
+
+.btn-signup {
+    border-radius: 0;
+    min-width: 33%;
+    font-weight: bold;
+    border: 0;
+    margin-top: 32px;
+    background-color: #dd4444;
+}
+
+.btn-signup:hover, .btn-signup:active, .btn-signup:active:hover, .btn-signup:focus, .btn-signup:enabled {
+    background-color: #dd3535;
 }
