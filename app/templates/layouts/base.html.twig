@@ -5,50 +5,22 @@
     <base href="{{ app.request.baseUrl }}">
     <title>
         {% block title %}
-            Kepler Analytics
+            FedUp - Join the food-sharing revolution!
         {% endblock %}
     </title>
     {% block includes %}
-        <meta name="msapplication-TileColor" content="#ffffff ">
-        <meta name="msapplication-TileImage" content="image/favicon/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff ">
-
         {# stylesheets #}
-        {#<link rel="stylesheet" href="css/boot.css">#}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/datepicker.css">
-        <link rel="stylesheet" href="css/datepicker3.css">
         <link rel="stylesheet" href="css/base.css">
 
         {# javascripts #}
-        {#<script src="js/bootstrap.min.js"></script>#}
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/highcharts.js"></script>
-        <script type="text/javascript" src="js/exporting.js"></script>
-        <script type="text/javascript" src="js/datepicker.js"></script>
-        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript"
+                src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     {% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-default navbar-static-top top-nav">
-    {% block navbar %}
-        <div class="container-fluid">
-            <div class="navbar-header">
-                {% block navbarHeader %}
-                    <a class="navbar-brand" href="/"><img src="image/logo_header.png" alt="Kepler Analytics"></a>
-                {% endblock %}
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                {% block navbarLinks %}
-                {% endblock %}
-            </ul>
-        </div>
-    {% endblock %}
-</nav>
-<div class="content-wrapper">
-    {% block content %}
-    {% endblock %}
-</div>
+{% block body %}
+{% endblock %}
 </body>
 </html>

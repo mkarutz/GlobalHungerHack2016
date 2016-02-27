@@ -8,26 +8,25 @@
 
 namespace FedUp\Controllers;
 
-use PDO;
+use Symfony\Component\HttpFoundation\Response;
+use Twig_Environment;
 
 class LandingController
 {
-	/** @var  PDO */
-	private $pdo;
+	/** @var  Twig_Environment */
+	private $twig;
 
 	/**
 	 * LandingController constructor.
-	 * @param PDO $pdo
+	 * @param Twig_Environment $twig
 	 */
-	public function __construct(PDO $pdo)
+	public function __construct(Twig_Environment $twig)
 	{
-		$this->pdo = $pdo;
+		$this->twig = $twig;
 	}
 
 	public function dispatch()
 	{
-		$query = "SELECT * FROM User";
-		$this->pdo->query($query);
-		return "OKAY!";
+		return new Response($this->twig->render('landingPage.html.twig'));
 	}
 }

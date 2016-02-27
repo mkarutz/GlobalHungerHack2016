@@ -27,7 +27,7 @@ $app['PDO'] = $app->share(function ($app) {
 });
 
 $app['LandingController'] = $app->share(function () use ($app) {
-	return new LandingController($app['PDO']);
+	return new LandingController();
 });
 
 //
