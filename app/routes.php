@@ -23,10 +23,10 @@ $app->get('/app', 'AppController:home');
 
 //// Browse feeds
 //$app->get('/feeds', 'FeedsController:index');
-//
-//// View a feed
-//$app->get('/feeds/{feedId}', 'FeedsController:view');
-//
+
+// View a feed
+$app->get('/feeds/{feedId}', 'FeedsController:view');
+
 //// Send a request for an invitation
 //$app->post('/feeds/{feedId}/requests/new', 'RequestsController:create');
 //
