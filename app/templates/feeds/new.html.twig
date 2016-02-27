@@ -6,17 +6,17 @@
                 <h1>Post a Feed</h1>
                 <form id="newFeed" action="/feeds/new" method="post">
                     <div class="form-group">
-                        <label for="name" class="control-label">Name</label>
-                        <input type="text" id="name" class="form-control" name="name" placeholder="What do you have to give?" value="">
+                        <label for="title" class="control-label">Title</label>
+                        <input type="text" id="title" class="form-control" name="title" placeholder="What have you got?" value="" required>
                     </div>
                     <div class="form-group">
                         <label for="description" class="control-label">Name</label>
-                        <textarea id="description" class="form-control" name="description" placeholder="Description"></textarea>
+                        <textarea id="description" class="form-control" name="description" placeholder="Description" required></textarea>
                     </div>
 
                     <fieldset class="form-group">
                         <label for="photo">Upload a photo</label>
-                        <input type="file" class="form-control-file" id="photo" accept="image/*;capture=camera">
+                        <input type="file" class="form-control-file" id="photo" accept="image/*;capture=camera" required>
                     </fieldset>
 
                     <fieldset>
@@ -30,8 +30,8 @@
                             <input type="text" id="line2" class="form-control" name="line2" placeholder="Line 2" value="">
                         </div>
                         <div class="form-group">
-                            <label for="suburb">Suburb</label>
-                            <select multiple="" class="form-control" id="suburb" required>
+                            <label for="suburbId">Suburb</label>
+                            <select multiple="" class="form-control" id="suburbId" name="suburbId" required>
                                 <option value="" disabled selected>Suburb</option>
                                 {% for suburb in suburbs %}
                                     <option value="{{ suburb.suburbId }}">{{ suburb.name }} {{ suburb.postCode }}</option>

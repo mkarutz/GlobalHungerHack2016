@@ -1,6 +1,7 @@
 <?php
 
 use FedUp\Controllers\AppController;
+use FedUp\Controllers\FeedsController;
 use Silex\Application;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
@@ -75,7 +76,13 @@ $app['AppController'] = $app->share(function () use ($app) {
 });
 
 $app['FeedsController'] = $app->share(function () use ($app) {
-	return new \FedUp\Controllers\FeedsController($app['FeedDAO'], $app['SuburbDAO'], $app['twig']);
+	return new FeedsController(
+		$app['UserAuthenticationService'],
+		$app['FeedDAO'],
+		$app['AddressDAO'],
+		$app['SuburbDAO'],
+		$app['twig']
+	);
 });
 
 //
