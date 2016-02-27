@@ -89,10 +89,11 @@ class FeedsController
 
 		$this->feedDAO->save($feed);
 
-		$uploadedFileName = $_FILES['photo']['name'];
-		$exploded = explode('.', $uploadedFileName);
-		$extension = end($exploded);
-		move_uploaded_file($_FILES['photo']['tmp_name'], '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension);
+		$uploadedFileName = basename($_FILES['photo']['name']);
+		$extension = pathinfo($uploadedFileName, PATHINFO_EXTENSION);
+		$target = '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension;
+		return $target;
+		move_uploaded_file($_FILES['photo']['tmp_name'], $target);
 
 		return new RedirectResponse('/feeds/' . $feed->getFeedId());
 	}
