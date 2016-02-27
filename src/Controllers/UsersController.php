@@ -84,4 +84,10 @@ class UsersController
 		$this->userAuthenticationService->login($username, $password);
 		return new RedirectResponse('/app');
 	}
+
+	public function logout(Request $request)
+	{
+		$this->userAuthenticationService->logout();
+		return new RedirectResponse('/');
+	}
 }
