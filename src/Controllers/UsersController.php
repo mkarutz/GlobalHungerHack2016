@@ -60,6 +60,7 @@ class UsersController
 	{
 		$username = $request->request->get('username');
 		$password = $request->request->get('password');
+		// todo: handle non-matching passwords and already existing usernames
 		$user = new User();
 		$user->setUsername($username);
 		$user->setPassword($password);

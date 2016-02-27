@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-push-4">
+                <div class="panel panel-default login-panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Log In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form method="post">
+                            <div class="form-group">
+                                <input type="text" name="username" class="form-control" placeholder="Username" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" id="submitBtn" class="btn btn-block btn-primary btn-login" value="Log in"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
