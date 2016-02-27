@@ -90,7 +90,7 @@ class FeedsController
 		$this->feedDAO->save($feed);
 
 		$uploadedFileName = basename($_FILES['photo']['name']);
-		$extension = pathinfo($uploadedFileName, PATHINFO_EXTENSION);
+		$extension = pathinfo($_FILES['photo']['tmp_name'], PATHINFO_EXTENSION);
 		$target = '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension;
 		return $target;
 		move_uploaded_file($_FILES['photo']['tmp_name'], $target);
