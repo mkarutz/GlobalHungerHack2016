@@ -68,7 +68,7 @@ class FeedDAO
 				throw new Exception($stmt->errorInfo()[2]);
 			}
 
-			$feed->setAddressId($this->dbh->lastInsertId());
+			$feed->setFeedId($this->dbh->lastInsertId());
 
 		} catch (PDOException $e) {
 			throw new Exception($e->getMessage());
