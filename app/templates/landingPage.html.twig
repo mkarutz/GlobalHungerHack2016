@@ -1,10 +1,72 @@
 {% extends 'layouts/base.html.twig' %}
+{% block includes %}
+    {{ parent() }}
+    <link rel="stylesheet" href="css/landing-page.css">
+{% endblock %}
 {% block body %}
-    <div class = "jumbotron">
-        <div class = "container">
-            <h1>FedUp</h1>
-            <p>Put an end to food waste and join the food-sharing revolution!</p>
-            <p><a class = "btn btn-primary btn-lg" role="button">Learn more</a></p>
+    <div class="intro-header" style="background-image: url(image/sharing-food.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message" style="padding-top: 0">
+                        <h1><img src="image/logo.png" height="350px" alt="FedUp"></h1>
+                        <h3>Put an end to food waste and join the food-sharing revolution!</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="/feeds" class="btn btn-default btn-lg"><span class="network-name">Find a Feed</span></a>
+                            </li>
+                            <li>
+                                <a href="/feeds/new" class="btn btn-default btn-lg"><span class="network-name">Post a Feed</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">FedUp of wasting food?</h2>
+                    <p class="lead">FedUp is here for you!</p>
+                    <p class="lead">We are an online platform for finding and sharing food in your local area. We aim to combat food waste by providing a place for everyone to advertise and find free food!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <img class="img-responsive img-quick-start" src="image/camera.svg" alt="">
+                    <h2 class="section-heading quick-start-heading">Snap</h2>
+                </div>
+                <div class="col-lg-4">
+                    <img class="img-responsive img-quick-start" src="image/phone.png" alt="">
+                    <h2 class="section-heading quick-start-heading">Post</h2>
+                </div>
+                <div class="col-lg-4">
+                    <img class="img-responsive img-quick-start" src="image/tick.png" alt="">
+                    <h2 class="section-heading quick-start-heading">Accept</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-lg-push-7 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Low on cash?</h2>
+                    <p class="lead">You can still get FedUp on a budget.</p>
+                    <p class="lead">FedUp connects you with people in your local community looking to get rid of their unwanted or excess food.</p>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

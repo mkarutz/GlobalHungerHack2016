@@ -1,0 +1,35 @@
+/*html {*/
+    /*font-family: 'Open Sans', sans-serif;*/
+/*}*/
+
+/*.section {*/
+    /*background-size: cover;*/
+    /*margin: 0;*/
+/*}*/
+
+/*.landing {*/
+    /*text-align: center;*/
+/*}*/
+
+/*.landing .lead {*/
+    /*font-size: 32px;*/
+    /*text-shadow: 2px 2px 8px #000000;*/
+    /*font-family: Lobster, cursive;*/
+    /*color: white;*/
+/*}*/
+
+.intro-message h3 {
+    font-family: Lobster, cursive;
+    font-size: 48px;
+    font-weight: normal;
+}
+
+.img-quick-start {
+    height: 128px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quick-start-heading {
+    text-align: center;
+}
