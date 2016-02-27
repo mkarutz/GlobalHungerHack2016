@@ -21,6 +21,10 @@ body, p, h1, h2, h3, h4, h5, h6, span, a {
     /*color: white;*/
 /*}*/
 
+.login-panel {
+    margin-top: 25%;
+}
+
 .intro-header {
     min-height: 100vh;
     background-size: cover;
