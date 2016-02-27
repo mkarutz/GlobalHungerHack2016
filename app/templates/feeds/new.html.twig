@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-4 col-lg-push-4">
                 <h1>Post a Feed</h1>
-                <form id="newFeed" action="/feeds/new" method="post">
+                <form id="newFeed" action="/feeds/new" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="title" class="control-label">Title</label>
                         <input type="text" id="title" class="form-control" name="title" placeholder="What have you got?" value="" required>
