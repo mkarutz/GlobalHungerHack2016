@@ -91,6 +91,8 @@ class FeedsController
 
 		$feed->setAddressId($address->getAddressId());
 
+		$this->feedDAO->save($feed);
+
 		$uploadedFileName = $_FILES['photo']['name'];
 		$exploded = explode('.', $uploadedFileName);
 		$extension = end($exploded);
