@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html.twig' %}
+{% block navbarLinks %}
+    <li class="dropdown">
+        <a class="dropdown-toggle" title="Settings" role="button" data-toggle="dropdown" href="#">
+            <img src="image/icon_settings.png" height="20px" class="settings"/> Settings
+            <span class="caret"></span>
+        </a>
+        <ul id="g-account-menu" class="dropdown-menu" role="menu">
+            <li><a href="/account"><img src="image/icon-account.png" height="22px"/>Account</a></li>
+            <li><a href="/logout"><img src="image/icon-logout.png" height="22px"/>Logout</a></li>
+        </ul>
+    </li>
+{% endblock %}
+{% block content %}
+    {% block sidebar %}
+        <nav class="side-bar">
+            {{ render('/sidebar') }}
+        </nav>
+    {% endblock %}
+    {% block pageWrapper %}
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <h1 class="page-header">
+                    {% block pageHeader %}{% endblock %}
+                    <small>{% block subHeader %}{% endblock %}</small>
+                    {% block form %}
+                    {% endblock %}
+                </h1>
+                {% block page %}
+                {% endblock %}
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

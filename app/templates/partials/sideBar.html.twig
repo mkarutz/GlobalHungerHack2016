@@ -1,0 +1,5 @@
+<ul>
+    {% for feature in features %}
+        <li class="side-bar-item"><a href="{{ feature.pathPrefix }}">{{ feature.name }}</a></li>
+    {% endfor %}
+</ul>
