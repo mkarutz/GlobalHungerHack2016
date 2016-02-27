@@ -32,7 +32,6 @@
                         <div class="form-group">
                             <label for="suburbId">Suburb</label>
                             <select multiple="" class="form-control" id="suburbId" name="suburbId" required>
-                                <option value="" disabled selected>Suburb</option>
                                 {% for suburb in suburbs%}
                                     <option value="{{ suburb.suburbId }}">{{ suburb.name }} {{ suburb.postCode }}</option>
                                 {% endfor %}
