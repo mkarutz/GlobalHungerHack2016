@@ -94,6 +94,16 @@ class FeedsController
 		$extension = end($exploded);
 		move_uploaded_file($_FILES['photo']['name'], '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension);
 
-		return new RedirectResponse('/app');
+		return new RedirectResponse('/feeds/' . $feed->getFeedId());
+	}
+
+	public function view(Request $request, $feedId)
+	{
+		$user = $this->userAuthenticationService->getUser();
+		$feed = $this->feedDAO->find($feedId);
+		return new Response($this->twig->render('feeds/view.html.twig', array(
+			'user' => $user,
+			'feed' => $feed
+		)));
 	}
 }

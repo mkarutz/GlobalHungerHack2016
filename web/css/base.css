@@ -81,3 +81,7 @@ body, p, h1, h2, h3, h4, h5, h6, span, a {
 .btn-signup:hover, .btn-signup:active, .btn-signup:active:hover, .btn-signup:focus, .btn-signup:enabled {
     background-color: #dd3535;
 }
+
+.img-feed-photo {
+    border-radius: 50%;
+}
