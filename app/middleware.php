@@ -11,9 +11,10 @@ use Symfony\Component\HttpFoundation\Request;
 $app->before(function (Request $request, Application $app) {
 	/** @var UserAuthenticationService $userAuthenticationService */
 	$userAuthenticationService = $app['UserAuthenticationService'];
-	if ($request->getPathInfo() != '/login' && !$userAuthenticationService->isLoggedIn() ||
-		$request->getPathInfo() != '/' && !$userAuthenticationService->isLoggedIn() ||
-		$request->getPathInfo() != '/signup' && !$userAuthenticationService->isLoggedIn()) {
+	if (!($request->getPathInfo() == '/'
+			|| $request->getPathInfo() == '/signup'
+			|| $request->getPathInfo() == '/login')
+		&& !$userAuthenticationService->isLoggedIn()) {
 		return new RedirectResponse('/login');
 	}
 });
