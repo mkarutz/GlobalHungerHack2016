@@ -7,6 +7,8 @@ use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
 
+use FedUp\Controllers\LandingController;
+
 /** @var Application $app */
 
 // Service Providers
@@ -22,6 +24,10 @@ $app->register(new TwigServiceProvider(), array(
 // PDO
 $app['PDO'] = $app->share(function ($app) {
 	return new PDO($app['db.dsn'], $app['db.username'], $app['db.password']);
+});
+
+$app['LandingController'] = $app->share(function () use ($app) {
+	return new LandingController($app['PDO']);
 });
 
 //
