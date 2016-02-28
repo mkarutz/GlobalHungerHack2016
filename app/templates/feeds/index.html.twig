@@ -16,30 +16,25 @@
                 <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
         </form>
-        <div class="row">
-            {#<div class="panel panel-default">#}
-                <ul class="search-results-list">
-                    {% for feed in feeds %}
-                        <li class="search-result">
-                            <a href="/feeds/{{ feed.feedId }}">
-                                <div class="row">
-                                    <div class="search-result">
-                                        <div class="col-lg-3">
-                                            <img class="img-responsive img-feed-photo" src="photos/{{ feed.feedId }}"
-                                                 alt="photo">
-                                        </div>
-                                        <div class="col-lg-9">
-                                            <h3 class="search-result-header">{{ feed.title }}</h3>
-                                            <p class="search-result-description">{{ feed.description }}</p>
-                                        </div>
-                                    </div>
+        {% for feed in feeds %}
+            <div class="row">
+                <div class="search-result-container">
+                    <a href="/feeds/{{ feed.feedId }}">
+                        <div class="row">
+                            <div class="search-result">
+                                <div class="col-lg-3">
+                                    <img class="img-responsive img-feed-photo" src="photos/{{ feed.feedId }}"
+                                         alt="photo">
                                 </div>
-                            </a>
-                            <hr>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {#</div>#}
-        </div>
+                                <div class="col-lg-9">
+                                    <h3 class="search-result-header">{{ feed.title }}</h3>
+                                    <p class="search-result-description">{{ feed.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
