@@ -78,8 +78,10 @@ class FeedDAO
 	public function findBySuburbId($suburbId)
 	{
 		try {
-			$sql = "SELECT * FROM Feed " .
-				"WHERE suburbId=:suburbId";
+			$sql = "SELECT Feed.* FROM Feed " .
+				"INNER JOIN Address ".
+				"ON Feed.addressId = Address.addressId " .
+				"WHERE Address.suburbId=:suburbId";
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->execute(array(
 					':suburbId' => $suburbId
