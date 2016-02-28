@@ -86,6 +86,11 @@ body, p, h1, h2, h3, h4, h5, h6, span, a {
 
 }
 
+.feed-details-photo {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
 li.search-result {
     list-style: none;
     min-height: 256px;
