@@ -84,14 +84,11 @@ body, p, h1, h2, h3, h4, h5, h6, span, a {
 
 .img-feed-photo {
     border-radius: 50%;
-    height: 256px;
-    width: 256px;
 }
 
 .search-result {
     list-style: none;
-    height: 256px;
-    width: 256px;
+    min-height: 256px;
 }
 
 .search-results-list {
