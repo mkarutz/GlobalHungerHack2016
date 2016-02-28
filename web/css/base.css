@@ -86,9 +86,10 @@ body, p, h1, h2, h3, h4, h5, h6, span, a {
     border-radius: 50%;
 }
 
-.search-result {
+li.search-result {
     list-style: none;
     min-height: 256px;
+    padding: 15px;
 }
 
 .search-results-list {
