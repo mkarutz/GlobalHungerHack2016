@@ -100,3 +100,25 @@ form.search-filter {
     margin-bottom: 32px;
     text-align: center;
 }
+
+.main-image {
+    height: 100vh;
+}
+
+.background-image {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+    background-image: url('image/friends.jpg');
+    background-size: cover;
+    height: 100vh;
+
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
