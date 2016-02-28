@@ -3,13 +3,20 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-lg-push-4">
-                <img class="img-responsive img-feed-photo feed-details-photo" src="https://placehold.it/350x350" {#src="photos/{{ feed.feedId }}"#} alt="photo">
+                <img class="img-responsive img-feed-photo feed-details-photo" src="photos/{{ feed.feedId }}" alt="photo">
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8">
                 <h2>{{ feed.title|e }}</h2>
-                <p>{{ feed.description|e }}</p>
+                <div class="panel panel-default">
+                    <div class="panel-header">
+                        Description
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ feed.description|e }}</p>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-4">
                 <h4>Contact</h4>
