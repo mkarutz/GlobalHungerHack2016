@@ -109,16 +109,19 @@ form.search-filter {
     position: fixed;
     left: 0;
     right: 0;
+    top: 0;
     z-index: -1;
 
     display: block;
-    background-image: url('https://culinaryadventuresofthespicescribe.files.wordpress.com/2015/09/cheeky-food-co-sharing-food-with-friends.jpg');
+    /*background-image: url('https://culinaryadventuresofthespicescribe.files.wordpress.com/2015/09/cheeky-food-co-sharing-food-with-friends.jpg');*/
     background-size: cover;
     height: 100vh;
 
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    /*-webkit-filter: blur(5px);*/
+    /*-moz-filter: blur(5px);*/
+    /*-o-filter: blur(5px);*/
+    /*-ms-filter: blur(5px);*/
+    /*filter: blur(5px);*/
+
+    background-color: gainsboro;
 }
