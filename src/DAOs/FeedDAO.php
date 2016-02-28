@@ -107,14 +107,15 @@ class FeedDAO
 	public function save(Feed $feed)
 	{
 		try {
-			$sql = "INSERT INTO Feed (userId, title, description, addressId) " .
-				"VALUES (:userId, :title, :description, :addressId)";
+			$sql = "INSERT INTO Feed (userId, title, description, addressId, fileExt) " .
+				"VALUES (:userId, :title, :description, :addressId, :fileExt)";
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->execute(array(
 				":userId" => $feed->getUserId(),
 				":title" => $feed->getTitle(),
 				":description" => $feed->getDescription(),
-				":addressId" => $feed->getAddressId()
+				":addressId" => $feed->getAddressId(),
+				":fileExt" => $feed->getFileExt()
 			));
 
 			if ($stmt->errorCode() != '0000') {
@@ -136,6 +137,7 @@ class FeedDAO
 		$feed->setTitle($row['title']);
 		$feed->setDescription($row['description']);
 		$feed->setAddressId(intval($row['addressId']));
+		$feed->setFileExt($row['fileExt']);
 		return $feed;
 	}
 }

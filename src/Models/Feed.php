@@ -26,6 +26,25 @@ class Feed
 	/** @var  int */
 	private $addressId;
 
+	/** @var  string */
+	private $fileExt;
+
+	/**
+	 * @return string
+	 */
+	public function getFileExt()
+	{
+		return $this->fileExt;
+	}
+
+	/**
+	 * @param string $fileExt
+	 */
+	public function setFileExt($fileExt)
+	{
+		$this->fileExt = $fileExt;
+	}
+
 	/**
 	 * @return int
 	 */
