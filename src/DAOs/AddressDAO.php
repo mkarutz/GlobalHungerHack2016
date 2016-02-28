@@ -30,7 +30,7 @@ class AddressDAO
 	{
 		try {
 			$sql = "SELECT * FROM Address " .
-				"WHERE addressId=:address";
+				"WHERE addressId=:addressId";
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->execute(array(
 				":addressId" => $addressId
