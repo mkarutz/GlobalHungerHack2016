@@ -87,12 +87,13 @@ class UserDAO
 	public function save(User $user)
 	{
 		try {
-			$sql = "INSERT INTO User (username, password) " .
-				"VALUES (:username, :password)";
+			$sql = "INSERT INTO User (username, password, phone) " .
+				"VALUES (:username, :password, :phone)";
 			$stmt = $this->dbh->prepare($sql);
 			$stmt->execute(array(
 				":username" => $user->getUsername(),
-				":password" => $user->getPassword()
+				":password" => $user->getPassword(),
+				":phone" => $user->getPhone()
 			));
 
 			if ($stmt->errorCode() != '0000') {
@@ -116,6 +117,7 @@ class UserDAO
 		$user->setUserId(intval($row["userId"]));
 		$user->setUsername($row["username"]);
 		$user->setPassword($row["password"]);
+		$user->setPhone($row["phone"]);
 		return $user;
 	}
 }

@@ -60,10 +60,12 @@ class UsersController
 	{
 		$username = $request->request->get('username');
 		$password = $request->request->get('password');
+		$phone = $request->request->get('phone');
 		// todo: handle non-matching passwords and already existing usernames
 		$user = new User();
 		$user->setUsername($username);
 		$user->setPassword($password);
+		$user->setPhone($phone);
 		$this->userDAO->save($user);
 		$this->userAuthenticationService->login($username, $password);
 		return new RedirectResponse('/app');

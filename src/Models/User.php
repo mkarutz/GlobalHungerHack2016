@@ -14,6 +14,25 @@ class User
 	/** @var  string */
 	private $password;
 
+	/** @var  string */
+	private $phone;
+
+	/**
+	 * @return string
+	 */
+	public function getPhone()
+	{
+		return $this->phone;
+	}
+
+	/**
+	 * @param string $phone
+	 */
+	public function setPhone($phone)
+	{
+		$this->phone = $phone;
+	}
+
 	/**
 	 * @return int
 	 */
