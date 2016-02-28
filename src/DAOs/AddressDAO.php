@@ -26,7 +26,32 @@ class AddressDAO
 		$this->dbh = $dbh;
 	}
 
-	public function find($firstLine, $secondLine, $suburbId)
+	public function find($addressId)
+	{
+		try {
+			$sql = "SELECT * FROM Address " .
+				"WHERE addressId=:address";
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->execute(array(
+				":addressId" => $addressId
+			));
+
+			if ($stmt->errorCode() != '0000') {
+				throw new Exception($stmt->errorInfo()[2]);
+			}
+
+			if (!($row = $stmt->fetch())) {
+				return null;
+			}
+
+			return self::build($row);
+
+		} catch (PDOException $e) {
+			throw new Exception($e->getMessage());
+		}
+	}
+
+	public function findByDetails($firstLine, $secondLine, $suburbId)
 	{
 		try {
 			$sql = "SELECT * FROM Address " .

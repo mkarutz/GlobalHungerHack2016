@@ -96,6 +96,7 @@ li.search-result {
     padding: 0;
 }
 
-.search-filter {
+form.search-filter {
     margin-bottom: 32px;
+    text-align: center;
 }

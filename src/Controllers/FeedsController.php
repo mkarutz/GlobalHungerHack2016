@@ -103,7 +103,7 @@ class FeedsController
 		$addressLine2 = $form->get('line2') === '' ? null : $form->get('line2');
 		$suburbId = $form->get('suburbId');
 
-		$address = $this->addressDAO->find($addressLine1, $addressLine2, $suburbId);
+		$address = $this->addressDAO->findByDetails($addressLine1, $addressLine2, $suburbId);
 		if (is_null($address)) {
 			$address = new Address();
 			$address->setFirstLine($addressLine1);
@@ -127,9 +127,13 @@ class FeedsController
 	{
 		$user = $this->userAuthenticationService->getUser();
 		$feed = $this->feedDAO->find($feedId);
+		$address = $this->addressDAO->find($feed->getAddressId());
+		$suburb = $this->suburbDAO->find($address->getSuburbId());
 		return new Response($this->twig->render('feeds/view.html.twig', array(
 			'user' => $user,
-			'feed' => $feed
+			'feed' => $feed,
+			'address' => $address,
+			'suburb' => $suburb
 		)));
 	}
 }
