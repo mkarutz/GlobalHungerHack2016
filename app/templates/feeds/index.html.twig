@@ -7,7 +7,7 @@
                 <select class="form-control" id="suburbId" name="suburbId" required>
                     <option value="" disabled selected>Find Feeds in...</option>
                     {% for suburb in suburbs %}
-                        <option value="{{ suburb.suburbId }}">{{ suburb.name }} {{ suburb.postCode }} {% if suburbParam is defined and suburbParam.suburbId == suburb.suburbId %}selected{% endif %}></option>
+                        <option value="{{ suburb.suburbId }}" {% if suburbParam is defined and suburbParam.suburbId == suburb.suburbId %}selected{% endif %}>{{ suburb.name }} {{ suburb.postCode }}</option>
                     {% endfor %}
                 </select>
             </div>
