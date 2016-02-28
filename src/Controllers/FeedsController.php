@@ -59,7 +59,7 @@ class FeedsController
 		$user = $this->userAuthenticationService->getUser();
 		$suburbs = $this->suburbDAO->findAll();
 
-		if ($request->query->has('suburbId')) {
+		if (!$request->query->has('suburbId')) {
 			$feeds = $this->feedDAO->findAll();
 
 			return new Response($this->twig->render('feeds/index.html.twig', array(
