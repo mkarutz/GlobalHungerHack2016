@@ -81,6 +81,7 @@ $app['FeedsController'] = $app->share(function () use ($app) {
 		$app['FeedDAO'],
 		$app['AddressDAO'],
 		$app['SuburbDAO'],
+		$app['UserDAO'],
 		$app['twig']
 	);
 });

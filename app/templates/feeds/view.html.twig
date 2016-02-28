@@ -14,11 +14,9 @@
             <div class="col-lg-4">
                 <h4>Contact</h4>
                 <div class="row">
-                    {% if user.phone is not null %}
-                        <div class="well">
-                            {{ user.phone }}
-                        </div>
-                    {% endif %}
+                    <div class="well">
+                        Phone: {{ owner.phone }}
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">

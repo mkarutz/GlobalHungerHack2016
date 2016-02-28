@@ -11,6 +11,7 @@ namespace FedUp\Controllers;
 use FedUp\DAOs\AddressDAO;
 use FedUp\DAOs\FeedDAO;
 use FedUp\DAOs\SuburbDAO;
+use FedUp\DAOs\UserDAO;
 use FedUp\Models\Address;
 use FedUp\Models\Feed;
 use FedUp\Services\UserAuthenticationService;
@@ -33,6 +34,9 @@ class FeedsController
 	/** @var  SuburbDAO */
 	private $suburbDAO;
 
+	/** @var UserDAO */
+	private $userDAO;
+
 	/** @var  Twig_Environment */
 	private $twig;
 
@@ -42,15 +46,17 @@ class FeedsController
 	 * @param FeedDAO $feedDAO
 	 * @param AddressDAO $addressDAO
 	 * @param SuburbDAO $suburbDAO
+	 * @param UserDAO $userDAO
 	 * @param Twig_Environment $twig
 	 */
 	public function __construct(UserAuthenticationService $userAuthenticationService, FeedDAO $feedDAO,
-	                            AddressDAO $addressDAO, SuburbDAO $suburbDAO, Twig_Environment $twig)
+	                            AddressDAO $addressDAO, SuburbDAO $suburbDAO, UserDAO $userDAO, Twig_Environment $twig)
 	{
 		$this->userAuthenticationService = $userAuthenticationService;
 		$this->feedDAO = $feedDAO;
 		$this->addressDAO = $addressDAO;
 		$this->suburbDAO = $suburbDAO;
+		$this->userDAO = $userDAO;
 		$this->twig = $twig;
 	}
 
@@ -127,11 +133,13 @@ class FeedsController
 	{
 		$user = $this->userAuthenticationService->getUser();
 		$feed = $this->feedDAO->find($feedId);
+		$owner = $this->userDAO->find($feed->getUserId());
 		$address = $this->addressDAO->find($feed->getAddressId());
 		$suburb = $this->suburbDAO->find($address->getSuburbId());
 		return new Response($this->twig->render('feeds/view.html.twig', array(
 			'user' => $user,
 			'feed' => $feed,
+			'owner' => $owner,
 			'address' => $address,
 			'suburb' => $suburb
 		)));
