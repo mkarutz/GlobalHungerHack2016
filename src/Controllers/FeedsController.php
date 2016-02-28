@@ -54,6 +54,33 @@ class FeedsController
 		$this->twig = $twig;
 	}
 
+	public function index(Request $request)
+	{
+		$user = $this->userAuthenticationService->getUser();
+		$suburbs = $this->suburbDAO->findAll();
+
+		if ($request->query->has('suburbId')) {
+			$feeds = $this->feedDAO->findAll();
+
+			return new Response($this->twig->render('feeds/index.html.twig', array(
+				'user' => $user,
+				'suburbs' => $suburbs,
+				'feeds' => $feeds
+			)));
+		}
+
+		$suburb = $this->suburbDAO->find($request->query->get('suburbId'));
+		$feeds = $this->feedDAO->findBySuburbId($request->query->get('suburbId'));
+
+		return new Response($this->twig->render('feeds/index.html.twig', array(
+			'user' => $user,
+			'suburbParam' => $suburb,
+			'suburbs' => $suburbs,
+			'feeds' => $feeds
+		)));
+	}
+
+
 	public function form(Request $request)
 	{
 		$suburbs = $this->suburbDAO->findAll();
@@ -91,7 +118,6 @@ class FeedsController
 
 		$extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
 		$target = '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension;
-		return $target;
 		move_uploaded_file($_FILES['photo']['tmp_name'], $target);
 
 		return new RedirectResponse('/feeds/' . $feed->getFeedId());

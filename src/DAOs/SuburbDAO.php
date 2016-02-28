@@ -50,6 +50,31 @@ class SuburbDAO
 		}
 	}
 
+	public function find($suburbId)
+	{
+		try {
+			$sql = "SELECT * FROM Suburb " .
+				"WHERE suburbId=:suburbId";
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->execute(array(
+				':suburbId' => $suburbId
+			));
+
+			if ($stmt->errorCode() != '0000') {
+				throw new Exception($stmt->errorInfo()[2]);
+			}
+
+			if (!($row = $stmt->fetch())) {
+				return null;
+			}
+
+			return self::build($row);
+
+		} catch (PDOException $e) {
+			throw new Exception($e->getMessage());
+		}
+	}
+
 	private static function build($row)
 	{
 		$suburb = new Suburb();

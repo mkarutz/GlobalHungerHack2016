@@ -51,6 +51,57 @@ class FeedDAO
 		}
 	}
 
+	public function findAll()
+	{
+		try {
+			$sql = "SELECT * FROM Feed";
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->execute();
+
+			if ($stmt->errorCode() != '0000') {
+				throw new Exception($stmt->errorInfo()[2]);
+			}
+
+			$result = array();
+
+			foreach ($stmt->fetchAll() as $row) {
+				$result[] = self::build($row);
+			}
+
+			return $result;
+
+		} catch (PDOException $e) {
+			throw new Exception($e->getMessage());
+		}
+	}
+
+	public function findBySuburbId($suburbId)
+	{
+		try {
+			$sql = "SELECT * FROM Feed " .
+				"WHERE suburbId=:suburbId";
+			$stmt = $this->dbh->prepare($sql);
+			$stmt->execute(array(
+					':suburbId' => $suburbId
+			));
+
+			if ($stmt->errorCode() != '0000') {
+				throw new Exception($stmt->errorInfo()[2]);
+			}
+
+			$result = array();
+
+			foreach ($stmt->fetchAll() as $row) {
+				$result[] = self::build($row);
+			}
+
+			return $result;
+
+		} catch (PDOException $e) {
+			throw new Exception($e->getMessage());
+		}
+	}
+
 	public function save(Feed $feed)
 	{
 		try {
