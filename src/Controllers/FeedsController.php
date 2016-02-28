@@ -120,11 +120,14 @@ class FeedsController
 
 		$feed->setAddressId($address->getAddressId());
 
+		$this->feedDAO->save($feed);
+
 		$extension = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
 		$target = '/var/www/GlobalHungerHack2016/web/photos/' . $feed->getFeedId() . '.' . $extension;
 		move_uploaded_file($_FILES['photo']['tmp_name'], $target);
 
 		$feed->setFileExt($extension);
+
 		$this->feedDAO->save($feed);
 
 		return new RedirectResponse('/feeds/' . $feed->getFeedId());
