@@ -21,8 +21,8 @@ $app->get('/logout', 'UsersController:logout');
 // Home page
 $app->get('/app', 'AppController:home');
 
-//// Browse feeds
-//$app->get('/feeds', 'FeedsController:index');
+// Browse feeds
+$app->get('/feeds', 'FeedsController:index');
 
 // Create a feed
 $app->get('/feeds/new', 'FeedsController:form');
