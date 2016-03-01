@@ -1,0 +1,5 @@
+web/photos
+app/config
+**/.idea/
+vendor/
+composer.lock
