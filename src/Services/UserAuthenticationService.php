@@ -8,7 +8,7 @@ use Exception;
 
 /**
  * This Service handles User sessions, login and logout.
- * @package Kepler\Services
+ * @package FedUp\Services
  */
 class UserAuthenticationService
 {
